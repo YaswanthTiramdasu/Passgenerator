@@ -8,10 +8,9 @@ def generate_password(length=12):
     digits = string.digits
     symbols = string.punctuation
 
-    # Combine all characters
+
     all_chars = lowercase + uppercase + digits + symbols
 
-    # Ensure at least one character from each set
     password = [
         random.choice(lowercase),
         random.choice(uppercase),
@@ -19,17 +18,15 @@ def generate_password(length=12):
         random.choice(symbols)
     ]
 
-    # Fill the rest randomly
+
     for _ in range(length - 4):
         password.append(random.choice(all_chars))
 
-    # Shuffle to avoid predictable patterns
     random.shuffle(password)
 
-    # Convert list to string
     return ''.join(password)
 
-# Example usage
+
 if __name__ == "__main__":
     length = int(input("Enter password length (minimum 4): ") or 12)
     if length < 4:
